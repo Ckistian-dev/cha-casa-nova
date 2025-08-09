@@ -1,16 +1,14 @@
-/* Importação das fontes do Google Fonts */
+/* src/styles/main.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500;700&display=swap');
 
-/* Diretivas do Tailwind CSS */
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* Camada de estilos base customizados */
 @layer base {
-  /* A regra do body foi removida daqui */
   h1, h2, h3, h4 {
-    /* Usando a função theme() para aplicar a fonte customizada */
+    /* Confirme esta regra: */
     font-family: theme('fontFamily.dancing-script');
   }
 }

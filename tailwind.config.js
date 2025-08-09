@@ -1,8 +1,10 @@
+// tailwind.config.js
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html", // Se você tem um index.html na raiz
-    "./src/**/*.{js,ts,jsx,tsx}", // Para todos os arquivos JS, TS, JSX, TSX na pasta src
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -11,13 +13,12 @@ export default {
         'sage-green': '#3A3F36',
         'accent': '#A88A6E',
       },
+      // Confirme esta seção:
       fontFamily: {
         'montserrat': ['Montserrat', 'sans-serif'],
-        // Certifique-se que esta linha está preenchida corretamente
         'dancing-script': ['Dancing Script', 'cursive'],
       }
     },
   },
   plugins: [],
-  // Se você adicionou darkMode: 'class' antes, verifique se ainda está aqui, se relevante.
 }

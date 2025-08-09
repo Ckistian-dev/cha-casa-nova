@@ -18,7 +18,6 @@ const EventAndLocationSection = () => {
     };
 
     return (
-        // Mudei o fundo para branco para criar um contraste melhor
         <section id="location" className="py-20 sm:py-32 px-6 bg-white">
             <div className="container mx-auto">
                 <motion.h2 {...animationProps} className="text-6xl sm:text-7xl text-sage-green mb-12 text-center">A Festa e o Local</motion.h2>
@@ -38,7 +37,7 @@ const EventAndLocationSection = () => {
                         <h3 className="font-montserrat text-2xl font-bold text-sage-green mt-8 mb-2">Salão de Festas do Condomínio</h3>
                         <p className="font-montserrat text-lg text-sage-green/90 mb-4">Rua das Festas, nº 456, Bairro da Celebração</p>
 
-                        <p className="font-montserrat text-sage-green/90 leading-relaxed mb-8">
+                        <p className="font-montserrat text-lg text-sage-green/90 leading-relaxed mb-8">
                             Prepare-se para um almoço delicioso que se estenderá por uma tarde inteira de celebração, boa conversa e música no nosso novo cantinho!
                         </p>
 
