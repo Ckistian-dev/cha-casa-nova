@@ -27,11 +27,11 @@ const EventAndLocationSection = () => {
                     <motion.div {...animationProps}>
                         <div className="flex items-center mb-6">
                             <CalendarIcon />
-                            <p className="font-montserrat text-xl text-sage-green font-medium">Sábado, 20 de Dezembro de 2025</p>
+                            <p className="font-montserrat text-xl text-sage-green font-medium">Domingo, 19 de Outubro de 2025</p>
                         </div>
                         <div className="flex items-center mb-8">
                             <ClockIcon />
-                            <p className="font-montserrat text-xl text-sage-green font-medium">A partir das 12:00h</p>
+                            <p className="font-montserrat text-xl text-sage-green font-medium">A partir das 11:00h</p>
                         </div>
                         
                         <h3 className="font-montserrat text-2xl font-bold text-sage-green mt-8 mb-2">Salão de Festas do Condomínio</h3>

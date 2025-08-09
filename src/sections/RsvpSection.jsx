@@ -82,7 +82,7 @@ const RsvpSection = () => {
             <div className="container mx-auto max-w-2xl text-center">
                 <h2 className="text-6xl sm:text-7xl text-sage-green mb-4">Confirme sua Presença</h2>
                 <p className="font-montserrat text-lg text-sage-green/90 mb-10">
-                    Por favor, confirme sua presença até o dia 10 de Dezembro. Apenas uma confirmação por família é necessária, ok?
+                    Por favor, confirme sua presença até o dia 19 de Outubro. Apenas uma confirmação por família é necessária, ok?
                 </p>
                 <AnimatePresence mode="wait">
                     {!isSubmitted ? (

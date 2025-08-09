@@ -12,7 +12,7 @@ const heroDesktopImage = '/hero-desktop.jpg';
 const heroMobileImage = '/hero-mobile.jpg';
 
 const HeroSection = () => {
-    const eventDate = '2025-12-20T12:00:00';
+    const eventDate = '2025-10-19T12:00:00';
 
     return (
         // O container principal ainda ocupa a tela inteira.
