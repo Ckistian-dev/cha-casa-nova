@@ -18,7 +18,7 @@ const EventAndLocationSection = () => {
     };
 
     return (
-        <section id="location" className="py-20 sm:py-32 px-6 bg-white">
+        <section id="location" className="py-20 sm:py-16 px-6 bg-white">
             <div className="container mx-auto">
                 <motion.h2 {...animationProps} className="text-6xl sm:text-7xl text-sage-green mb-12 text-center">A Festa e o Local</motion.h2>
                 

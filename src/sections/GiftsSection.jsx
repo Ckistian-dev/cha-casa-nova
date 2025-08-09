@@ -11,9 +11,9 @@ const GiftsSection = () => {
     };
 
     return (
-        <section id="gifts" className="py-20 sm:py-32 px-6 bg-white">
+        <section id="gifts" className="py-20 sm:py-16 px-6 bg-white">
             <div className="container mx-auto text-center">
-                <motion.h2 {...animationProps} className="text-6xl sm:text-7xl text-sage-green mb-4">Como nos Presentear</motion.h2>
+                <motion.h2 {...animationProps} className="text-6xl sm:text-7xl text-sage-green mb-4">Como Presentear</motion.h2>
                 <motion.p {...animationProps} transition={{ ...animationProps.transition, delay: 0.2 }} className="font-montserrat text-lg text-sage-green/90 max-w-3xl mx-auto mb-12">
                     Para deixar nossa casa com a nossa cara e a festa mais animada, pensamos em uma forma especial de colaboração:
                 </motion.p>
