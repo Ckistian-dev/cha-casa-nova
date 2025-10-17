@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import StyleCard from '../components/common/StyleCard';
 
@@ -9,24 +9,25 @@ const HomeIcon = () => (
     </svg>
 );
 
-const PartyIcon = () => (
-    <svg className="w-10 h-10 text-beige" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+const GiftIcon = () => (
+    <svg className="w-10 h-10 text-beige" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c1.657 0 3-1.343 3-3S13.657 2 12 2 9 3.343 9 5s1.343 3 3 3zm0 2c-2.21 0-4 1.79-4 4v1h8v-1c0-2.21-1.79-4-4-4zm6 4h-2v-1c0-1.103-.897-2-2-2h-4c-1.103 0-2 .897-2 2v1H6c-1.103 0-2 .897-2 2v4h16v-4c0-1.103-.897-2-2-2z"></path>
     </svg>
 );
 
 
-// Componente de Ícone para as Bebidas
-const DrinkIcon = ({ children, label }) => (
-  <div className="flex flex-col items-center text-center">
-    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center shadow-inner mb-2 text-beige">
-      {children}
-    </div>
-    <p className="font-montserrat text-sm font-medium text-beige/80">{label}</p>
-  </div>
-);
-
 const GiftsSection = () => {
+    const [pixCopied, setPixCopied] = useState(false);
+    const pixKey = "45999861237";
+
+    const handleCopyPix = () => {
+        navigator.clipboard.writeText(pixKey);
+        setPixCopied(true);
+        setTimeout(() => {
+            setPixCopied(false);
+        }, 2000); // O texto volta ao normal após 2 segundos
+    };
+
     const animationProps = {
         initial: { opacity: 0, y: 50 },
         whileInView: { opacity: 1, y: 0 },
@@ -39,20 +40,19 @@ const GiftsSection = () => {
             <div className="container mx-auto text-center">
                 <motion.h2 {...animationProps} className="text-6xl sm:text-7xl text-sage-green mb-4">Sugestões de Presente</motion.h2>
                 <motion.p {...animationProps} transition={{ ...animationProps.transition, delay: 0.2 }} className="font-montserrat text-lg text-sage-green/90 max-w-3xl mx-auto mb-12">
-                    Sua presença é o nosso maior presente! Mas se quiser nos mimar, pensamos em uma forma especial de colaboração para deixar nosso novo lar com a nossa cara e a festa mais animada.
+                    Sua presença é o nosso maior presente! Mas se quiser nos mimar, aqui estão algumas sugestões para nos ajudar a montar nosso novo lar.
                 </motion.p>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 text-left">
                     {/* Coluna da Esquerda: Presentes para a Casa */}
                     <motion.div {...animationProps} transition={{ ...animationProps.transition, delay: 0.4 }} className="bg-beige/50 p-8 rounded-lg flex flex-col">
-                        <div className="flex items-center gap-4 mb-2">
+                        <div className="flex items-center gap-4 mb-6">
                             <HomeIcon />
                             <h3 className="text-4xl text-accent">Para a Casa</h3>
                         </div>
-                        <p className="font-montserrat text-lg text-sage-green/80 mb-6 ml-14 -mt-2">(Sugestão para as mulheres)</p>
                         <p className="font-montserrat text-lg text-sage-green/90 mb-6">
                             Para nos ajudar a montar nosso cantinho, sugerimos itens com um design minimalista e moderno, em cores neutras como branco, bege, cinza e tons de madeira clara.
                         </p>
-                        <div className="flex-grow">
+                        <div className="flex-grow space-y-4">
                             <StyleCard
                                 title="Decoração Escandinava"
                                 colors={['#FFFFFF', '#F4F1EA', '#CCCCCC', '#D3C5B3']}
@@ -66,29 +66,35 @@ const GiftsSection = () => {
                         </div>
                     </motion.div>
 
-                    {/* Coluna da Direita: Bebidas */}
+                    {/* Coluna da Direita: Presente em Dinheiro (PIX) */}
                     <motion.div {...animationProps} transition={{ ...animationProps.transition, delay: 0.6 }} className="bg-sage-green p-8 rounded-lg text-white flex flex-col">
-                         <div className="flex items-center gap-4 mb-2">
-                            <PartyIcon />
-                            <h3 className="text-4xl text-beige">Para a Festa</h3>
+                        <div className="flex items-center gap-4 mb-6">
+                            <GiftIcon />
+                            <h3 className="text-4xl text-beige">Presente em Dinheiro</h3>
                         </div>
-                        <p className="font-montserrat text-lg text-beige/80 mb-6 ml-14 -mt-2">(Sugestão para os homens)</p>
                         <p className="font-montserrat text-lg text-beige/90 mb-8">
-                            Que tal nos ajudar a montar o bar? Traga o que você mais gosta de beber para compartilhar e vamos garantir que a festa não tenha hora para acabar!
+                            Se preferir, você pode nos presentear com um valor em dinheiro para ajudar nos custos da casa nova. Agradecemos imensamente o carinho!
                         </p>
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-auto">
-                            <DrinkIcon label="Cervejas">
-                                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10h3m-3 4h3m-7-4h.01M6 14h.01M10 20l-4-4 4-4M6 16h12a2 2 0 002-2V8a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" /></svg>
-                            </DrinkIcon>
-                            <DrinkIcon label="Vinhos">
-                                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                            </DrinkIcon>
-                            <DrinkIcon label="Destilados">
-                                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h4a2 2 0 012 2v2m-6 0h6" /></svg>
-                            </DrinkIcon>
-                            <DrinkIcon label="Refrigerantes">
-                                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                            </DrinkIcon>
+                        <div className="bg-white/10 p-6 rounded-lg text-center mt-auto">
+                            <p className="font-montserrat text-sm text-beige/80 mb-1">CHAVE PIX (Celular)</p>
+                            <p className="text-2xl font-bold text-white tracking-wider mb-4">{pixKey}</p>
+                            
+                            <p className="font-montserrat text-sm text-beige/80 mb-1">Nome</p>
+                            <p className="text-lg font-semibold text-white mb-4">Cristian Gabriel Kist</p>
+
+                            <p className="font-montserrat text-sm text-beige/80 mb-1">Instituição</p>
+                            <p className="text-lg font-semibold text-white mb-6">Nubank</p>
+                            
+                            <button
+                                onClick={handleCopyPix}
+                                className={`w-full py-3 px-6 rounded-lg font-bold font-montserrat text-lg transition-all duration-300 ease-in-out ${
+                                    pixCopied
+                                    ? 'bg-accent text-white'
+                                    : 'bg-beige text-sage-green hover:bg-beige/80'
+                                }`}
+                            >
+                                {pixCopied ? 'Chave Copiada!' : 'Copiar Chave PIX'}
+                            </button>
                         </div>
                     </motion.div>
                 </div>
